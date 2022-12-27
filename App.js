@@ -1,11 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {Platform, StyleSheet, Text, View, StatusBar} from 'react-native';
+import SimpleForm from "./components/Form";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.text}>Open up App.js to start working on your app!</Text>
+      <SimpleForm />
     </View>
   );
 }
@@ -13,8 +13,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#252250',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text : {
+    color: 'white',
+    fontSize: 20,
+  }
 });
